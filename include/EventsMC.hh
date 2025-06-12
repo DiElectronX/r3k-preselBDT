@@ -111,6 +111,7 @@ public:
    float        genE1_charge_MC;
    float        genE2_charge_MC;
    float        genK_charge_MC;
+   double        genB_mll_MC;
    float        recoE1_DR_MC;
    float        recoE1_Idx_MC;
    float        recoE1_pt_MC;

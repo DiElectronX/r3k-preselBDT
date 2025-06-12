@@ -39,6 +39,7 @@
 #include <TTreeReaderValue.h>
 #include "../../FastForest/include/fastforest.h"
 #include <TTreeReaderArray.h>
+#include <TLorentzVector.h>
 #include <vector>
 #include <iostream>
 #include <sstream>
@@ -129,7 +130,7 @@ void EventsMC::LoopMC(std::string outname, std::string outdir)
       genWeight_MC = genWeight;
       nPSWeight_MC = nPSWeight;
       nProbeTracks_MC = nProbeTracks;
-     HLT_DoubleEle10_eta1p22_mMax6_MC = HLT_DoubleEle10_eta1p22_mMax6;
+      HLT_DoubleEle10_eta1p22_mMax6_MC = HLT_DoubleEle10_eta1p22_mMax6;
       HLT_DoubleEle9p5_eta1p22_mMax6_MC = HLT_DoubleEle9p5_eta1p22_mMax6;
       HLT_DoubleEle9_eta1p22_mMax6_MC = HLT_DoubleEle9_eta1p22_mMax6;
       HLT_DoubleEle8p5_eta1p22_mMax6_MC = HLT_DoubleEle8p5_eta1p22_mMax6;
@@ -212,6 +213,12 @@ void EventsMC::LoopMC(std::string outname, std::string outdir)
       genE1_charge_MC = genE1_charge;
       genE2_charge_MC = genE2_charge;
       genK_charge_MC = genK_charge;
+      TLorentzVector tloreznel1;
+      TLorentzVector tloreznel2;
+      tloreznel1.SetPtEtaPhiM(genE1_pt,genE1_eta,genE1_phi,genE1_mass);
+      tloreznel2.SetPtEtaPhiM(genE2_pt,genE2_eta,genE2_phi,genE2_mass);      
+      TLorentzVector tloreznesum = tloreznel1+tloreznel2;
+      genB_mll_MC = tloreznesum.M();
       recoE1_DR_MC = recoE1_DR;
       recoE1_Idx_MC = recoE1_Idx;
       recoE1_pt_MC = recoE1_pt;
@@ -337,13 +344,13 @@ void EventsMC::LoopMC(std::string outname, std::string outdir)
 
 
       BDTSCORE_1_MC = bdt1(input1.data());
-      if (BDTSCORE_1_MC<-3.4003663){
-//            initVars();
-            goto end;
-      }
+//      if (BDTSCORE_1_MC<-3.4003663){
+//            initVarsMC();
+//            goto end;
+//      }
       //std::cout<<HLT_DoubleEle10_eta1p22_mMax6_<<std::endl;
       outTreeMC_->Fill();  
-      end:;
+//      end:;
    
       nb = fChain->GetEntry(jentry);   nbytes += nb;
    }
@@ -447,6 +454,7 @@ void EventsMC::OutputMC(std::string outname, std::string outdir) {
    outTreeMC_->Branch("genE1_charge", &genE1_charge_MC);
    outTreeMC_->Branch("genE2_charge", &genE2_charge_MC);
    outTreeMC_->Branch("genK_charge", &genK_charge_MC);
+   outTreeMC_->Branch("genB_mll", &genB_mll_MC);
 
    outTreeMC_->Branch("nSkimBToKEE", &npreSkimBToKEE_MC);
    outTreeMC_->Branch("BToKEE_fit_pt", &recoB_fit_pt_MC);
@@ -627,6 +635,7 @@ void EventsMC::initVarsMC() {
     genE1_charge_MC=-1000.;
     genE2_charge_MC=-1000.;
     genK_charge_MC=-1000.;
+    genB_mll_MC=-1000.;
     recoE1_DR_MC=-1000.;
     recoE1_Idx_MC=-1000.;
     recoE1_pt_MC=-1000.;
