@@ -1,0 +1,16 @@
+B0_k0star_jpsi_kaon
+B0_k0star_jpsi_pion
+B0_k0star_kaon
+B0_k0star_pion
+B0_k0star_psi2s_kaon
+B0_k0star_psi2s_pion
+B0_psi2s_kplus_piminus_kaon
+B0_psi2s_kplus_piminus_pion
+Bu_chic1_jpsi_kaon_kaon
+Bu_jpsi_pion_pion
+Bu_kstar_ee
+Bu_kstar_jpsi_kaon
+Bu_kstar_psi2s_kaon
+Bu_psi2s_pi_pion
+Bu_kstar_psi2s_pion
+Bu_kstar_pi_pion

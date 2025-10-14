@@ -13,7 +13,7 @@ for full_file_path in "$input_dir"/*.txt; do
     
     # Run the C++ command (replace 'your_cpp_command' with the actual command)
     # For example, if your C++ command is an executable called 'process_file'
-    ./addbdtscoreMC.exe ${full_file_path} ${FILE_NAME} PartialRecoOutput/
+    ./addbdtscoreMC.exe ${full_file_path} ${FILE_NAME} mc_no_presel_bdt/
     
     # Wait for the C++ command to finish before proceeding to the next file name
     echo "Finished processing $FILE_NAME"

@@ -1,0 +1,1 @@
+/eos/cms/store/group/phys_bphys/DiElectronX/File_location_20_11_24/CMGtoolsFiles/lowq/Bu_kaon_lowq_resonant.root

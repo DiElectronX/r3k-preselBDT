@@ -1,0 +1,1 @@
+/eos/cms/store/group/phys_bphys/DiElectronX/File_location_20_11_24/CMGtoolsFiles/psi2s/Bu_kstar_psi2s_KS0_pi_pion.root

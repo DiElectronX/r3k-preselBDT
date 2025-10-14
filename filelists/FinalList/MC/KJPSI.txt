@@ -1,0 +1,2 @@
+/eos/cms/store/group/phys_bphys/DiElectronX/jodedra/FinalFiles_RKanalysis/MC/KJPSI/BuToKJPsi_postEE/BuToKJPsi_postEE.root_BuToKJPsi_postEE_all.root
+/eos/cms/store/group/phys_bphys/DiElectronX/jodedra/FinalFiles_RKanalysis/MC/KJPSI/BuToKJPsi_preEE/BuToKJPsi_preEE.root_BuToKJPsi_preEE_all.root

@@ -1,0 +1,1 @@
+/eos/cms/store/group/phys_bphys/DiElectronX/File_location_20_11_24/CMGtoolsFiles/jpsi/Bd_k0star_jpsi_kaon_pion_pion.root

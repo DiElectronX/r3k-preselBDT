@@ -1,0 +1,1 @@
+/eos/cms/store/group/phys_bphys/DiElectronX/nzipper/Skims/MC_Psi2s_Skims/kstar_psi2s_pion.root
