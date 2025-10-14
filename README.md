@@ -36,7 +36,7 @@ add bdtscoreadder repo
 cd ${CMSSW_BASE}/src
 git clone git@github.com:jay-odedra/BDTscoreAdder.git
 ```
-compile code
+compile code and run
 ```
 cd BDTscoreAdder
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CMSSW_BASE}/src/FastForest/build/
