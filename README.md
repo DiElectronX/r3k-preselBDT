@@ -1,4 +1,15 @@
 # BDTScore Adder
+## Overview of code
+This repo converts nested event data into candidate data using root skeleton code.
+
+Events.cc and EventsMC.cc are the workhorse code files. They take in CMGtools output and convert it into a flat ntuple.
+
+Currently the preselection BDT stored in models/ is not cutting but only being evaluated and saved.
+
+
+
+
+
 Install CMSSW
 ```
 cmsrel CMSSW_13_1_0
