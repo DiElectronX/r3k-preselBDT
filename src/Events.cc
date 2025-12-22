@@ -126,7 +126,7 @@ void Events::Loop(std::string outname, std::string outdir)
    
    LoadBDT(bdt1,modellocation1,features1); 
 
-   int interval = 10000;
+   int interval = 100000;
    auto start = std::chrono::system_clock::now();
 
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
@@ -217,7 +217,7 @@ void Events::Loop(std::string outname, std::string outdir)
         if(L1_4p5_HLT_4p0_ || L1_5p0_HLT_4p0_ ||L1_5p5_HLT_4p0_ ||L1_5p5_HLT_6p0_ ||L1_6p0_HLT_4p0_ ||L1_6p5_HLT_4p5_ ||L1_7p0_HLT_5p0_ ||L1_7p5_HLT_5p0_ ||L1_8p0_HLT_5p0_ ||L1_8p5_HLT_5p0_ ||L1_8p5_HLT_5p5_ ||L1_9p0_HLT_6p0_ ||L1_10p5_HLT_5p0_||L1_10p5_HLT_6p5_||L1_11p0_HLT_6p5_){
             trigger_OR_ = true;
         }
-
+        
 
 //        // 2023 trigger 
 //        std::array<int,11> number = {0,0,0,0,0,0,0,0,0,0,0};
@@ -270,10 +270,10 @@ void Events::Loop(std::string outname, std::string outdir)
 //        L1_10p5_HLT_6p5_ = L1_DoubleEG10p5_er1p2_dR_Max0p6*HLT_DoubleEle6p5_eta1p22_mMax6;
 //        L1_11p0_HLT_6p5_ = L1_DoubleEG11_er1p2_dR_Max0p6*HLT_DoubleEle6p5_eta1p22_mMax6;
 
-        trigger_OR_ = false;
-        if( L1_5p0_HLT_4p0_ ||L1_5p5_HLT_4p0_||L1_6p0_HLT_4p0_ ||L1_6p5_HLT_4p5_ ||L1_7p0_HLT_5p0_ ||L1_7p5_HLT_5p0_ ||L1_8p0_HLT_5p0_||L1_8p5_HLT_5p5_ ||L1_9p0_HLT_6p0_||L1_10p5_HLT_6p5_||L1_11p0_HLT_6p5_){
-            trigger_OR_ = true;
-        }
+        //trigger_OR_ = false;
+        //if( L1_5p0_HLT_4p0_ ||L1_5p5_HLT_4p0_||L1_6p0_HLT_4p0_ ||L1_6p5_HLT_4p5_ ||L1_7p0_HLT_5p0_ ||L1_7p5_HLT_5p0_ ||L1_8p0_HLT_5p0_||L1_8p5_HLT_5p5_ ||L1_9p0_HLT_6p0_||L1_10p5_HLT_6p5_||L1_11p0_HLT_6p5_){
+        //    trigger_OR_ = true;
+       //}
 
       //std::cout<<run<<std::endl;
       for(int i=0;i<nSkimBToKEE_;i++){

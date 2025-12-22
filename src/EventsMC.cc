@@ -113,7 +113,7 @@ void EventsMC::LoopMC(std::string outname, std::string outdir)
 
    LoadBDT(bdt1,modellocation1,features1);
  
-   int interval = 1000;
+   int interval = 10000;
    auto start = std::chrono::system_clock::now();
 
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
@@ -365,7 +365,7 @@ void EventsMC::OutputMC(std::string outname, std::string outdir) {
    outTreeMC_ = new TTree("Events","Events");
    outTreeMC_->Branch("run", &run_MC);
    outTreeMC_->Branch("luminosityBlock", &luminosityBlock_MC);
-   outTreeMC_->Branch(" event", &       event_MC);
+   outTreeMC_->Branch("event", &       event_MC);
    outTreeMC_->Branch("bunchCrossing", &bunchCrossing_MC);
    outTreeMC_->Branch("nBToKEE", &nBToKEE_MC);
    outTreeMC_->Branch("nElectron", &nElectron_MC);
