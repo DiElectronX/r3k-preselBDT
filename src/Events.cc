@@ -69,10 +69,10 @@ void timing( int nentries, int jentry, auto start ) {
   std::string tmp = std::ctime(&end_time); 
   tmp.resize(tmp.length()-1); // remove trailing \n
   std::cout << "Processed event " << jentry << " out of " << nentries << " (" << int(100.*jentry/nentries) << "%). "
-	    << "Time elapsed: " << elapsed_seconds.count() << " s. "
-	    << "Time remaining: " << (predicted_duration.count() - elapsed_seconds.count() ) << " s. "
-	    << "Predicted finish time: " << tmp
-	    << std::endl;
+        << "Time elapsed: " << elapsed_seconds.count() << " s. "
+        << "Time remaining: " << (predicted_duration.count() - elapsed_seconds.count() ) << " s. "
+        << "Predicted finish time: " << tmp
+        << std::endl;
 }
 
 void Events::Loop(std::string outname, std::string outdir)
@@ -102,7 +102,7 @@ void Events::Loop(std::string outname, std::string outdir)
 //by  b_branchname->GetEntry(ientry); //read only this branch
    if (fChain == 0) return;
    std::ifstream f("./jsons/2022/merged2022.json");
-   std::ifstream f2("/eos/user/j/jodedra/AnalysisWork_2024/BDTScoreadder_FINAL/CMSSW_14_0_1/src/BDTscoreAdder/jsons/2023new/merged.json");
+   std::ifstream f2("./jsons/2023new/merged.json");
 
    json data2 = json::parse(f2);
    json data = json::parse(f);
