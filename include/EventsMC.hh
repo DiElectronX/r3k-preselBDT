@@ -227,6 +227,9 @@ public:
    float        trig_wgt_MC; 
    float        BDTSCORE_1_MC;
    float        BDTSCORE_2_MC; 
+   float        FONLLweight_Down_MC;
+   float        FONLLweight_Up_MC;
+   float        FONLLweight_MC;
 
    TFile* outFileMC_=nullptr;
    TTree* outTreeMC_=nullptr;
