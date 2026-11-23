@@ -1,2 +1,0 @@
-/eos/user/j/jodedra/FastForestnewest/CMSSW_13_1_0/src/BDTscoreAdder/BuToKJPsi_postEE.root_BuToKJPsi_postEE_all.root
-/eos/user/j/jodedra/FastForestnewest/CMSSW_13_1_0/src/BDTscoreAdder/BuToKJPsi_preEE.root_BuToKJPsi_preEE_all.root

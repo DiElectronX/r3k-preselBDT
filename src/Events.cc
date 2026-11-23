@@ -12,6 +12,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <utility>   // std::swap (reco-pT ordering of l1/l2)
 #include <TFile.h>
 #include <TROOT.h>                  // access to gROOT, entry point to ROOT system
 #include <TSystem.h>                // interface to OS
@@ -60,7 +61,9 @@ float evaluatemodel(fastforest::FastForest& bdt,std::vector<float> input){
     float score = bdt(input.data());
     return score;
 }
-void timing( int nentries, int jentry, auto start ) {
+//void timing( int nentries, int jentry, auto start ) {
+template <typename T>
+void timing( int nentries, int jentry, T start ) {
   auto now = std::chrono::system_clock::now();
   std::chrono::duration<double> elapsed_seconds = now-start;
   std::chrono::duration<double> predicted_duration = elapsed_seconds * (nentries*1.)/(jentry*1.);
@@ -275,7 +278,7 @@ void Events::Loop(std::string outname, std::string outdir)
         //    trigger_OR_ = true;
        //}
 
-      //std::cout<<run<<std::endl;
+      //std::cout<<run<<std::endl; Loop over candidates, fills candidates in each tree
       for(int i=0;i<nSkimBToKEE_;i++){
          BToKEE_fit_pt_ = SkimBToKEE_fit_pt[i];
          BToKEE_fit_eta_ = SkimBToKEE_fit_eta[i];
@@ -366,15 +369,57 @@ void Events::Loop(std::string outname, std::string outdir)
          std::vector<float> input1{BToKEE_l1_PFMvaID_retrained_,BToKEE_l2_PFMvaID_retrained_,BToKEE_fit_pt_,BToKEE_fit_l2_pt_};
 
 
-
          //BDTSCORE_1 = bdt1(input1.data());
          BDTSCORE_1 = bdt1(input1.data());
-//         if (BDTSCORE_1<-3.4003663){
-//            initVars();
-//            goto end;
-//         }
+         bool triplet_presel = SkimBToKEE_svprob[i] > 0.0001 && 
+                               SkimBToKEE_fit_l1_pt[i] > 5. && 
+                               SkimBToKEE_fit_l2_pt[i] > 5. && 
+                               SkimBToKEE_fit_mass[i] > 4.5 && 
+                               SkimBToKEE_fit_mass[i] < 6. && 
+                               SkimBToKEE_fit_pt[i] > 1.75;
+                               
+         bool anti_d0_presel = SkimBToKEE_D0_mass_LepToK_KToPi[i] > 2. && SkimBToKEE_D0_mass_LepToPi_KToK[i] > 2.;
+
+         // Apply preselection
+         /*
+         if (!triplet_presel || BDTSCORE_1<-3.4003663 || !anti_d0_presel){
+            initVars();
+            //goto end;
+            continue;
+         }
+        */
+
+         // --- enforce reco-pT ordering: lead(l1)=higher fit pT, sublead(l2)=lower ---
+         // Data is ~98% pT-ordered already; MC is ~53% because the gen-matched
+         // candidate labels l1/l2 by gen association. Swap ALL paired l1/l2
+         // quantities so data and MC share one definition. This also fixes the
+         // trigger SF downstream (it keys on BToKEE_fit_l2_pt = sublead).
+         // NOTE: l1l2Dr / l1l2Dz are symmetric under l1<->l2 -> NOT swapped.
+         // Placed AFTER the presel-BDT eval (BDTSCORE_1) so that cut is unaffected.
+         if (BToKEE_fit_l1_pt_ < BToKEE_fit_l2_pt_) {
+            std::swap(BToKEE_fit_l1_pt_,            BToKEE_fit_l2_pt_);
+            std::swap(BToKEE_fit_l1_eta_,           BToKEE_fit_l2_eta_);
+            std::swap(BToKEE_fit_l1_phi_,           BToKEE_fit_l2_phi_);
+            std::swap(BToKEE_l1Idx_,                BToKEE_l2Idx_);
+            std::swap(BToKEE_l1_charge_,            BToKEE_l2_charge_);
+            std::swap(BToKEE_l1_ConvVeto_,          BToKEE_l2_ConvVeto_);
+            std::swap(BToKEE_l1_iso04_,             BToKEE_l2_iso04_);
+            std::swap(BToKEE_l1_iso04_dca_,         BToKEE_l2_iso04_dca_);
+            std::swap(BToKEE_l1_isPF_,              BToKEE_l2_isPF_);
+            std::swap(BToKEE_l1_isPFoverlap_,       BToKEE_l2_isPFoverlap_);
+            std::swap(BToKEE_l1_LooseId_,           BToKEE_l2_LooseId_);
+            std::swap(BToKEE_l1_MediumId_,          BToKEE_l2_MediumId_);
+            std::swap(BToKEE_l1_n_isotrk_dca_,      BToKEE_l2_n_isotrk_dca_);
+            std::swap(BToKEE_l1_PFMvaID_Fall17_,    BToKEE_l2_PFMvaID_Fall17_);
+            std::swap(BToKEE_l1_PFMvaID_retrained_, BToKEE_l2_PFMvaID_retrained_);
+            std::swap(BToKEE_l1_TightId_,           BToKEE_l2_TightId_);
+            std::swap(BToKEE_l1_vx_,                BToKEE_l2_vx_);
+            std::swap(BToKEE_l1_vy_,                BToKEE_l2_vy_);
+            std::swap(BToKEE_l1_vz_,                BToKEE_l2_vz_);
+         }
+
          outTree_->Fill();
-//         end:;
+        //end:;
   
          //initVars();
    

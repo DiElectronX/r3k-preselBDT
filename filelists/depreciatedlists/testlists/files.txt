@@ -1,1 +1,0 @@
-/eos/cms/store/group/phys_bphys/DiElectronX/jodedra/olderfolder/2023samplenocutsforpreselection/data/Run2022E_part4_0001/Run2022E_part4_0001.root_Run2022E_part4_0001_all.root

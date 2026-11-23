@@ -1,0 +1,26 @@
+universe  = vanilla
+executable = run_preselBDT_v2.sh
+arguments  = $(mode) $(filelist) $(outname) $(outdir)
+
+initialdir = /afs/cern.ch/user/j/jfratice/public/rk_analysis/presel_bdt/CMSSW_13_1_0/src/r3k-preselBDT
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files = ""
+
+# Always ship both exes, wrapper picks one based on $(mode)
+transfer_input_files = run_preselBDT_v2.sh, addbdtscoredata.exe, addbdtscoreMC.exe, $(filelist), shipped_libs, jsons, models
+
+output = logs/$(cluster)_$(process).out
+error  = logs/$(cluster)_$(process).err
+log    = logs/submit.log
+
+request_cpus   = 1
+request_memory = 2000MB
+request_disk   = 30000MB
+
++JobFlavour = "workday"
+on_exit_hold = (ExitCode != 0)
+
+# "queuefile" will be provided by the driver via -append
+queue mode, filelist, outname, outdir from $(queuefile)

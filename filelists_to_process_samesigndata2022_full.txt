@@ -1,0 +1,6 @@
+filelists/FinalList/SameSignData/000.txt samesigndata2022_000_presel.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/SameSignData
+filelists/FinalList/SameSignData/001.txt samesigndata2022_001_presel.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/SameSignData
+filelists/FinalList/SameSignData/002.txt samesigndata2022_002_presel.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/SameSignData
+filelists/FinalList/SameSignData/003.txt samesigndata2022_003_presel.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/SameSignData
+filelists/FinalList/SameSignData/004.txt samesigndata2022_004_presel.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/SameSignData
+filelists/FinalList/SameSignData/005.txt samesigndata2022_005_presel.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/SameSignData

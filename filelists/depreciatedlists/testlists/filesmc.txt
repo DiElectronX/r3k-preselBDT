@@ -1,2 +1,0 @@
-/eos/cms/store/group/phys_bphys/DiElectronX/jodedra/olderfolder/2023samplenocutsforpreselection/KEE/BuToKEE_postEE/BuToKEE_postEE.root_BuToKEE_postEE_all.root
-/eos/cms/store/group/phys_bphys/DiElectronX/jodedra/olderfolder/2023samplenocutsforpreselection/KEE/BuToKEE_preEE/BuToKEE_preEE.root_BuToKEE_preEE_all.root

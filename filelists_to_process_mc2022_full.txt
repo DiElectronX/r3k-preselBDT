@@ -1,0 +1,15 @@
+filelists/FinalList/eoslist_MC_20_11_24/Bd_k0star_jpsi_kaon_pion_kaon.txt Bd_k0star_jpsi_kaon_pion_kaon.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bd_k0star_jpsi_kaon_pion_pion.txt Bd_k0star_jpsi_kaon_pion_pion.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bd_k0star_kaon_pi_kaon.txt Bd_k0star_kaon_pi_kaon.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bd_k0star_kaon_pi_pion.txt Bd_k0star_kaon_pi_pion.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bd_k0star_psi2s_kaon_pion_kaon.txt Bd_k0star_psi2s_kaon_pion_kaon.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bd_k0star_psi2s_kaon_pion_pion.txt Bd_k0star_psi2s_kaon_pion_pion.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_jpsi_pi_pion.txt Bu_jpsi_pi_pion.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kaon_chic1_jpsi_kaon.txt Bu_kaon_chic1_jpsi_kaon.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kaon_jpsi_resonant.txt Bu_kaon_jpsi_resonant.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kaon_lowq_resonant.txt Bu_kaon_lowq_resonant.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kaon_psi2s_resonant.txt Bu_kaon_psi2s_resonant.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kstar_jpsi_kaon_pi0_kaon.txt Bu_kstar_jpsi_kaon_pi0_kaon.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kstar_jpsi_ks0_pi_pion.txt Bu_kstar_jpsi_ks0_pi_pion.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kstar_K0S_pi_pion.txt Bu_kstar_K0S_pi_pion.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc
+filelists/FinalList/eoslist_MC_20_11_24/Bu_kstar_psi2s_KS0_pi_pion.txt Bu_kstar_psi2s_KS0_pi_pion.root /eos/user/j/jfratice/RK/preselBDT_output/2022/fix/mc

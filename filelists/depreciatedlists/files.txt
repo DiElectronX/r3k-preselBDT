@@ -1,1 +1,0 @@
-/eos/user/j/jodedra/fastforesttester/CMSSW_13_1_0/src/Run2022F_part1_0000.root_Run2022F_part1_0000_all.root

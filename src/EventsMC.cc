@@ -1,5 +1,6 @@
 #define EventsMC_cxx
 #include "../include/EventsMC.hh"
+#include <utility>   // std::swap (reco-pT ordering of l1/l2)
 #include <TH2.h>
 #include <TStyle.h>
 #include <TCanvas.h>
@@ -675,7 +676,37 @@ void EventsMC::LoopMC(std::string outname, std::string outdir)
 //            goto end;
 //      }
       //std::cout<<HLT_DoubleEle10_eta1p22_mMax6_<<std::endl;
-      outTreeMC_->Fill();  
+
+      // --- enforce reco-pT ordering: lead(l1)=higher fit pT, sublead(l2)=lower ---
+      // MC keeps the gen-matched candidate (recoB), whose l1/l2 are labeled by the
+      // gen match, NOT reco pT -> only ~53% pT-ordered vs ~98% in data. Swap ALL
+      // paired l1/l2 quantities. recoE1/recoE2 are the SAME electrons as recoB l1/l2
+      // (recoE1_Idx==recoB_l1Idx in 100% of events), so they swap in lockstep.
+      // recoB_l1l2Dr/Dz are symmetric -> NOT swapped. Placed AFTER the presel-BDT
+      // eval (BDTSCORE_1_MC) so that loose cut is unaffected.
+      if (recoB_fit_l1_pt_MC < recoB_fit_l2_pt_MC) {
+         std::swap(recoB_fit_l1_pt_MC,            recoB_fit_l2_pt_MC);
+         std::swap(recoB_fit_l1_eta_MC,           recoB_fit_l2_eta_MC);
+         std::swap(recoB_fit_l1_phi_MC,           recoB_fit_l2_phi_MC);
+         std::swap(recoB_l1Idx_MC,                recoB_l2Idx_MC);
+         std::swap(recoB_l1_ConvVeto_MC,          recoB_l2_ConvVeto_MC);
+         std::swap(recoB_l1_iso04_MC,             recoB_l2_iso04_MC);
+         std::swap(recoB_l1_iso04_dca_MC,         recoB_l2_iso04_dca_MC);
+         std::swap(recoB_l1_isPF_MC,              recoB_l2_isPF_MC);
+         std::swap(recoB_l1_isPFoverlap_MC,       recoB_l2_isPFoverlap_MC);
+         std::swap(recoB_l1_LooseId_MC,           recoB_l2_LooseId_MC);
+         std::swap(recoB_l1_MediumId_MC,          recoB_l2_MediumId_MC);
+         std::swap(recoB_l1_n_isotrk_dca_MC,      recoB_l2_n_isotrk_dca_MC);
+         std::swap(recoB_l1_PFMvaID_Fall17_MC,    recoB_l2_PFMvaID_Fall17_MC);
+         std::swap(recoB_l1_PFMvaID_retrained_MC, recoB_l2_PFMvaID_retrained_MC);
+         std::swap(recoB_l1_TightId_MC,           recoB_l2_TightId_MC);
+         std::swap(recoE1_charge_MC,              recoE2_charge_MC);
+         std::swap(recoE1_vx_MC,                  recoE2_vx_MC);
+         std::swap(recoE1_vy_MC,                  recoE2_vy_MC);
+         std::swap(recoE1_vz_MC,                  recoE2_vz_MC);
+      }
+
+      outTreeMC_->Fill();
 //      end:;
    
       nb = fChain->GetEntry(jentry);   nbytes += nb;

@@ -1,0 +1,2 @@
+filelists/FinalList/MC/KPSI2S.txt kpsi2s2022_bdt.root  /eos/user/j/jfratice/RK/preselBDT_output/mc/2022
+

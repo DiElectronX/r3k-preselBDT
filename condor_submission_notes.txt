@@ -1,0 +1,12 @@
+To specify the input file used for the condor submission, see the filelists_to_process scripts for data and mc. It is
+structured as follows: <relative_input_path> <output_file_name> <output_dir>
+
+To submit on condor, call the executable ./submit_preselBDT_v2.sh. The arguments are as follows:
+ -- mode <data/mc>: submit either data or mc
+ --queue <filelist>: name of filelist_to_process text file containing data/mc input and output specifics
+
+ NOTE: the submission wrapper can be called without using the filelist text files as follows:
+ $ ./submit_preselBDT.sh --mode <data/mc> \
+  --filelist <input relative path> \
+  --outname <output root file name> \
+  --outdir  <output directory>

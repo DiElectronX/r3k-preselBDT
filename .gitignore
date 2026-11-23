@@ -1,0 +1,5 @@
+*.exe
+logs/
+test_outputs/
+shipped_libs/
+old_framework/
